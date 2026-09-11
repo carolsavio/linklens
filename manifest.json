@@ -1,0 +1,10 @@
+{
+  "name": "LinkLens",
+  "description": "A Chrome extension that provides a lens to view and analyze links on web pages.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "hello_extensions.png"
+  }
+}

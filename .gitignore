@@ -1,0 +1,9 @@
+.vscode/
+*.log
+*.tmp
+temp/
+tmp/
+*.zip
+*.crx
+*.pem
+*.key
