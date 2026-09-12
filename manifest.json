@@ -3,8 +3,36 @@
   "description": "A Chrome extension that provides a lens to view and analyze links on web pages.",
   "version": "1.0",
   "manifest_version": 3,
+  
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "linklens_icon.png"
+    "default_popup": "popup.html",
+    "default_icon": "linklens_icon.png",
+    "default_title": "Ver status de phishing desta página"
+ 
+  },
+
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
   }
+
+
+
 }
