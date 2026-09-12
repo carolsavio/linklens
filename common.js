@@ -15,6 +15,12 @@ function analisarUrl(url) {
         motivos.push("Domínio com muitos hífens");
     }
 
+    // usa https?
+    if (!url.startsWith("https://")) {
+        score += 20;
+        motivos.push("Conexão não é HTTPS");
+    }
+
     return {
         score,
         motivos
