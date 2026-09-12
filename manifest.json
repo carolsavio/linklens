@@ -14,7 +14,7 @@
   
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "linklens_icon.png",
+    "default_icon": "icons/linklens_icon.png",
     "default_title": "Ver status de phishing desta página"
  
   },
