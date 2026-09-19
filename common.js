@@ -10,7 +10,7 @@ function analisarUrl(url) {
     }
 
     // o dominio tem muitos hífens?
-    if ((host.match(/-/g) || [].length > 2)){
+    if ((host.match(/-/g) || []).length > 2) {
         score += 15;
         motivos.push("Domínio com muitos hífens");
     }
@@ -50,4 +50,8 @@ function levenshtein (a, b) {
     }
 
     return custo[a.length][b.length];
+}
+
+function extrairPartes(host) {
+    return host.split(/[.-]/);
 }
