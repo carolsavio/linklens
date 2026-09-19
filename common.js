@@ -1,3 +1,5 @@
+const marcasConhecidas = ["paypal", "google", "microsoft", "bancodobrasil", "santander", "itau", "caixa"]
+
 function analisarUrl(url) {
     let score = 0;
     const motivos = [];
@@ -54,4 +56,23 @@ function levenshtein (a, b) {
 
 function extrairPartes(host) {
     return host.split(/[.-]/);
+}
+
+function verificarTyposquatting(host) {
+    let score = 0;
+    const motivos = [];
+    const partes = extrairPartes(host);
+
+    for (const parte of partes) {
+        for (const marca of marcasConhecidas) {
+            const distancia = levenshtein(parte, marca);
+
+            if (parte !== marca && distancia > 0 && distancia <= 2) {
+                score += 40;
+                motivos.push(`Parte "${parte}" do domínio é parecida com "${marca}" (distância ${distancia})`)
+
+            }
+        }
+    }
+    return {score, motivos};
 }

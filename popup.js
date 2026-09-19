@@ -1,3 +1,3 @@
-console.log(extrairPartes("paypa1-login.com"));
-console.log(extrairPartes("conta.paypal.com"));
-console.log(extrairPartes("google.com"));
+console.log(verificarTyposquatting("paypa1-login.com"));
+console.log(verificarTyposquatting("google.com"));
+console.log(verificarTyposquatting("conta.paypal.com"));
