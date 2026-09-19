@@ -23,6 +23,10 @@ function analisarUrl(url) {
         motivos.push("Conexão não é HTTPS");
     }
 
+    const resultadoTypo = verificarTyposquatting(host);
+    score += resultadoTypo.score;
+    motivos.push(resultadoTypo.motivos)
+
     return {
         score,
         motivos
