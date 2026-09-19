@@ -28,3 +28,26 @@ function analisarUrl(url) {
 
 }
 
+//typosquatting -> no console esta funcionando por enquanto
+function levenshtein (a, b) {
+    const custo = [];
+
+    for (let i = 0; i<= a.length; i++) custo [i] = [i];
+    for (let j = 1; j <= b.length; j++) custo[0][j] = j;
+
+    for (let i = 1; i<= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+            if (a[i - 1] === b[j - 1]) {
+                custo [i][j] = custo [i -1][j - 1];
+            } else {
+                custo[i][j] = Math.min(
+                    custo[i - 1][j] + 1,
+                    custo[i][j - 1] + 1,
+                    custo[i - 1][j - 1] + 1
+                );
+            }
+        }
+    }
+
+    return custo[a.length][b.length];
+}
